@@ -1,0 +1,22 @@
+{
+  "name": "simple-drag",
+  "version": "1.0.0",
+  "description": "drag function",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/QingshanLuoyue/simple-drag.git"
+  },
+  "keywords": [
+    "drag"
+  ],
+  "author": "linjunfu",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/QingshanLuoyue/simple-drag/issues"
+  },
+  "homepage": "https://github.com/QingshanLuoyue/simple-drag#readme"
+}
