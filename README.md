@@ -37,6 +37,9 @@ html
 ```
 
 js
+
+
+Drag at the parent
 ```javascript
 import Drag from 'pure-drag'
 
@@ -46,5 +49,13 @@ let dragParent = document.getElementById('dragparent'),
 new Drag({
     parent: dragParent,
     dragEle: dragSon
+})
+```
+
+Global drag
+```javascript
+import Drag from 'pure-drag'
+new Drag({
+    dragEle: document.getElementById('dragson')
 })
 ```
