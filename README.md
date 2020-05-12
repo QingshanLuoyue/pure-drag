@@ -29,6 +29,9 @@
 <br>
 
 #### 全局拖拽
+
+[全局拖拽测试用例](https://github.com/QingshanLuoyue/simple-drag/blob/master/demo/普通实现-全局拖拽.html)
+
 css
 ```css
 #dragson {
@@ -99,12 +102,14 @@ document.documentElement.onmouseup = function(e) {
     document.documentElement.onmousemove = null
 }
 ```
-[全局拖拽测试用例]()
 
 <br>
 
 
 #### 限制父级内拖拽 
+
+[限制父级内拖拽测试用例](https://github.com/QingshanLuoyue/simple-drag/blob/master/demo/普通实现-限制父级内拖拽.html)
+
 css
 ```css
 #dragparent {
@@ -205,10 +210,11 @@ document.documentElement.onmouseup = function(e) {
     document.documentElement.onmousemove = null
 }
 ```
-[限制父级内拖拽]()
 <br>
 
 ### 二、封装
+
+[封装测试用例](https://github.com/QingshanLuoyue/simple-drag/blob/master/demo/拖拽-封装.html)
 
 > 实现对 `拖拽` 功能的 `类封装`
 
@@ -331,6 +337,8 @@ class Drag {
 <br>
 
 ### 三、支持移动端
+
+[支持移动端测试用例](https://github.com/QingshanLuoyue/simple-drag/blob/master/demo/拖拽-封装-支持移动端.html)
 
 ```javascript
 class Drag {
@@ -467,3 +475,5 @@ class Drag {
     }
 }
 ```
+
+<br>
