@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>普通实现-全局拖拽</title>
+    <style>
+        #dragson {
+            position: absolute;
+            width: 100px;
+            height: 100px;
+            background-color: blue;
+        }
+    </style>
+</head>
+<body>
+    <div id="dragson"></div>
+</body>
+<script>
+let dragSon = document.getElementById('dragson')
+// 鼠标按下
+dragSon.onmousedown = function(e) {
+    // 兼容 IE
+    let ev = e || window.event,
+        // 存储当前鼠标位置
+        oldX = ev.clientX,
+        oldY = ev.clientY
+
+    // 阻止默认事件 ，即鼠标悬停在拖拽元素上，系统选中内容
+    if (window.event) {
+        // 兼容 IE
+        window.event.returnValue = false;
+    } else {
+        ev.preventDefault()
+    }
+
+    // 因为鼠标移动过快，可能会移出拖拽元素的范围
+    // 这里使用 document.documentElement.onmousemove 来解决
+    document.documentElement.onmousemove = function(e) {
+        let ev = e || window.event,
+            newX = ev.clientX,
+            newY = ev.clientY,
+            // 拖拽元素 距离 `参考父级` 左侧的距离 + `移动鼠标位置 X 轴值` 减去 `之前记录的鼠标位置 X 轴值`
+            endX = dragSon.offsetLeft + newX - oldX,
+            // 拖拽元素 距离 `参考父级` 顶部的距离 + `移动鼠标位置 Y 轴值` 减去 `之前记录的鼠标位置 Y 轴值`
+            endY = dragSon.offsetTop + newY - oldY
+        
+        // 阻止默认事件 ，即鼠标悬停在拖拽元素上，系统选中内容
+        if (window.event) {
+            // 兼容 IE
+            window.event.returnValue = false;
+        } else {
+            ev.preventDefault()
+        }
+
+        // 设置拖拽元素位置
+        dragSon.style.left = endX + 'px'
+        dragSon.style.top = endY + 'px'
+
+        // 新旧值交换
+        oldX = newX
+        oldY = newY
+    }
+}
+// 鼠标松开
+document.documentElement.onmouseup = function(e) {
+    // 函数赋值为 null，让函数失效，便于浏览器垃圾回收
+    document.documentElement.onmousemove = null
+}
+</script>
+</html>
